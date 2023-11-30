@@ -1,0 +1,12 @@
+train:  F:\Tesi\datasets\M5_yolo_LCM_100x/train/images
+val:    F:\Tesi\datasets\M5_yolo_LCM_100x/valid/images
+test:   F:\Tesi\datasets\M5_yolo_LCM_100x/test/images
+
+# Classes
+nc : 4
+names:
+  ['gametocyte',
+  'schizont',
+  'trophozoite',
+  'ring']
+

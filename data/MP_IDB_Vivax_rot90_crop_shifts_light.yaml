@@ -1,0 +1,7 @@
+train: F:/Tesi/datasets/MP_IDB_Vivax_rot90_crop_shifts_light/images/train
+val:   F:/Tesi/datasets/MP_IDB_Vivax_rot90_crop_shifts_light/images/val
+test:  F:/Tesi/datasets/datasets_eval/Vivax/images
+
+# Classes
+nc: 4  # number of classes
+names: ['G','R','T','S' ]  # class names

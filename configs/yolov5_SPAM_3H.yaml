@@ -1,0 +1,75 @@
+# Reference: https://github.com/cv516Buaa/tph-yolov5/blob/main/models/yolov5l-xs-tr-cbam-spp-bifpn.yaml
+
+# Parameters
+nc: 80  # number of classes
+depth_multiple: 0.67  # model depth multiple
+width_multiple: 0.75  # layer channel multiple
+anchors: 3
+  
+
+# YOLOv5 v6.0 backbone
+backbone:
+  # [from, number, module, args]
+  [[-1, 1, Conv, [64, 6, 2, 2]],  # 0-P1/2
+   [-1, 1, Conv, [128, 3, 2]],  # 1-P2/4
+   [-1, 3, C3, [128]],
+   [-1, 1, Conv, [256, 3, 2]],  # 3-P3/8
+   [-1, 6, C3, [256]],
+   [-1, 1, Conv, [512, 3, 2]],  # 5-P4/16
+   [-1, 9, C3, [512]],
+   [-1, 1, Conv, [1024, 3, 2]],  # 7-P6/64
+   [-1, 3, C3, [1024]],
+   [-1, 1, CBAM, [1024]],
+   [-1, 1, SPPF, [1024, 5]],  # 10
+  ]
+
+head:
+  [[-1, 1, Conv, [512, 1, 1]],
+   [-1, 1, nn.Upsample, [None, 2, 'nearest']],
+   [[-1, 6], 1, Concat, [1]],  # cat backbone P4
+   [-1, 3, C3, [512, False]],  # 14 (P4/16-medium)
+   [-1, 1, CBAM, [512]],
+
+   [-1, 1, Conv, [256, 1, 1]],
+   [-1, 1, nn.Upsample, [None, 2, 'nearest']],
+   [[-1, 4], 1, Concat, [1]],  # cat backbone P3
+   [-1, 3, C3, [256, False]],  # 19 (P3/8-small)
+   [-1, 1, CBAM, [256]],
+
+   [-1, 1, Conv, [128, 1, 1]],
+   [-1, 1, nn.Upsample, [None, 2, 'nearest']],
+   [[-1, 2], 1, Concat, [1]],  # cat backbone P2
+   [-1, 3, C3, [128, False]],  # 24 (P2/4-xsmall)
+   [-1, 1, CBAM, [128]],
+
+   [-1, 1, Conv, [128, 3, 2]],
+   [[-1, 21], 1, Concat, [1]],  # cat head P3
+   [-1, 3, C3, [256, False]],  # 28 (P3/8-small)
+   [-1, 1, CBAM, [256]],
+
+   [-1, 1, Conv, [256, 3, 2]],
+   [[-1, 16], 1, Concat, [1]],  # cat head P3
+   [-1, 3, C3, [512, False]],  # 32 (P3/8-small)
+   [-1, 1, CBAM, [512]],
+
+   [23, 2, C3STR, [128, False]],  # 34 (P2/4-xsmall)
+   [34, 2, C3STR, [128, False]],  # 35 (P2/4-xsmall)
+   [35, 2, C3STR, [128, False]],  # 36 (P2/4-xsmall)
+   [[-1, 25], 1, Concat, [1]],  # cat head P3
+   [-1, 1, NAM_Attention, [256]],
+
+   [27, 2, C3STR, [256, False]],  # 39 (P3/8-small)
+   [39, 2, C3STR, [256, False]],  # 40 (P3/8-small)
+   [40, 2, C3STR, [256, False]],  # 41 (P3/8-small=
+   [[-1, 29], 1, Concat, [1]],  # cat head P3
+   [-1, 1, NAM_Attention, [512]],
+
+   [31, 2, C3STR, [512, False]],  # 44 (P3/8-m)
+   [44, 2, C3STR, [512, False]],  # 45 (P3/8-m)
+   [45, 2, C3STR, [512, False]],  # 46 (P3/8-m=
+   [[-1, 33], 1, Concat, [1]],  # cat head P3
+   [-1, 1, NAM_Attention, [1024]],
+
+   [[38,43,48], 1, Detect, [nc]],  # Detect(P2, P3, P4, P5)
+  ]
+ 

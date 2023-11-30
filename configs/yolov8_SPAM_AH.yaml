@@ -1,0 +1,103 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# YOLOv8 object detection model with P3-P5 outputs. For Usage examples see https://docs.ultralytics.com/tasks/detect
+
+# Parameters
+nc: 80  # number of classes
+depth_multiple: 0.67  # model depth multiple
+width_multiple: 0.75  # layer channel multiple
+
+# YOLOv8.0x6 backbone
+backbone:
+  # [from, repeats, module, args]
+  - [-1, 1, Conv, [64, 3, 2]]  # 0-P1/2
+  - [-1, 1, Conv, [128, 3, 2]]  # 1-P2/4
+  - [-1, 3, C2f, [128, True]]
+  - [-1, 1, Conv, [256, 3, 2]]  # 3-P3/8
+  - [-1, 6, C2f, [256, True]]
+  - [-1, 1, Conv, [512, 3, 2]]  # 5-P4/16
+  - [-1, 6, C2f, [512, True]]
+  - [-1, 1, Conv, [768, 3, 2]]  # 7-P5/32
+  - [-1, 3, C2f, [768, True]]
+  - [-1, 1, Conv, [1024, 3, 2]]  # 9-P6/64
+  - [-1, 3, C2f, [1024, True]]
+  - [-1, 1, CBAM, [1024]] # 11
+  - [-1, 1, SPPF, [1024, 5]]  # 12
+
+# YOLOv8.0x6 head
+head:
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]
+  - [[-1, 8], 1, Concat, [1]]  # cat backbone P5
+  - [-1, 3, C2, [768, False]]  # 15
+  - [-1, 1, CBAM, [768]] # 16
+
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]
+  - [[-1, 6], 1, Concat, [1]]  # cat backbone P4
+  - [-1, 3, C2, [512, False]]  # 19
+  - [-1, 1, CBAM, [512]] # 20
+
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]
+  - [[-1, 4], 1, Concat, [1]]  # cat backbone P3
+  - [-1, 3, C2, [256, False]]  # 23
+  - [-1, 1, CBAM, [256]] # 24
+
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]
+  - [[-1, 2], 1, Concat, [1]]  # cat backbone P2
+  - [-1, 3, C2, [128, False]]  # 27
+  - [-1, 1, CBAM, [128]] # 28 (P3/8-xsmall)
+  # upsampling
+
+  - [-1, 1, Conv, [128, 3, 2]]
+  - [[-1, 24], 1, Concat, [1]]  # cat head P3
+  - [-1, 3, C2, [256, False]]  # 31 
+  - [-1, 1, CBAM, [256]] # 32 (P4/16-small)
+
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [[-1, 20], 1, Concat, [1]]  # cat head P4
+  - [-1, 3, C2, [512, False]]  # 35
+  - [-1, 1, CBAM, [512]] # 36 (P5/32-medium)
+
+  - [-1, 1, Conv, [512, 3, 2]]
+  - [[-1, 16], 1, Concat, [1]]  # cat head P5
+  - [-1, 3, C2, [768, False]]  # 39
+  - [-1, 1, CBAM, [768]] # 40 (P6/64-large)
+  
+  - [-1, 1, Conv, [768, 3, 2]]
+  - [[-1, 12], 1, Concat, [1]]  # cat head P6
+  - [-1, 3, C2, [1024, False]]  # 43
+  - [-1, 1, CBAM, [1024]] # 44 (P7/128-xlarge)
+
+  # concatenating
+
+  - [26, 2, C3STR, [128, False]]  # 45 (xsmall)
+  - [45, 2, C3STR, [128, False]]  # 46 (xsmall)
+  - [46, 2, C3STR, [128, False]]  # 47 (xsmall)
+  - [[-1, 28], 1, Concat, [1]]  # cat head P2
+  - [-1, 1, NAM_Attention, [256]] # 49
+
+  - [30, 2, C3STR, [256, False]]  # 50 (small)
+  - [50, 2, C3STR, [256, False]]  # 51 (small)
+  - [51, 2, C3STR, [256, False]]  # 52 (small)
+  - [[-1, 24], 1, Concat, [1]]  # cat head P3
+  - [-1, 1, NAM_Attention, [512]] # 54
+
+  - [34, 2, C3STR, [512, False]]  # 55 (medium)
+  - [55, 2, C3STR, [512, False]]  # 56 (medium)
+  - [56, 2, C3STR, [512, False]]  # 57 (medium)
+  - [[-1, 20], 1, Concat, [1]]  # cat head P4
+  - [-1, 1, NAM_Attention, [1024]] # 59
+
+  - [38, 2, C3STR, [768, False]]  # 60 (large)
+  - [60, 2, C3STR, [768, False]]  # 61 (large)
+  - [61, 2, C3STR, [768, False]]  # 62 (large)
+  - [[-1, 16], 1, Concat, [1]]  # cat head P5
+  - [-1, 1, NAM_Attention, [1536]] # 64
+
+  - [42, 2, C3STR, [1024, False]]  # 65 (xlarge)
+  - [65, 2, C3STR, [1024, False]]  # 66 (xlarge)
+  - [66, 2, C3STR, [1024, False]]  # 67 (xlarge)
+  - [[-1, 12], 1, Concat, [1]]  # cat head P6
+  - [-1, 1, NAM_Attention, [2048]] # 69
+
+  - [[49, 54, 59, 64, 69], 1, Detect, [nc]]  # Detect(P2, P3, P4, P5, P6)
+  
+ 

@@ -1,0 +1,15 @@
+train:  F:\Tesi\datasets\IML_malaria_multiclass_no_rbc/images/train
+val:    F:\Tesi\datasets\IML_malaria_multiclass_no_rbc/images/val
+test:   F:\Tesi\datasets\IML_malaria_multiclass_no_rbc/images/test
+
+# Classes
+nc : 8
+names:
+  ['gametocyte',
+  'schizont',
+  'trophozoite',
+  'ring',
+  'leukocyte',
+  'red blood cell',
+  'difficult',
+  'artifact']
