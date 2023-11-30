@@ -38,15 +38,19 @@ This table compares the detection performance of our proposed framework against 
 
 Before using the code, make sure to follow these setup instructions:
 
-### Ultralytics Installation
+###[STEP 1] Ultralytics Installation
 
 Extract the "ultralytics" zip file and place it in your Python packages folder.
 
-### Model Configurations
+###[STEP 2]  Select Model Configuration
 
 The full list of model configurations can be found in the "config" folder.
 
-### Usage Example
+###[STEP 3]  Create Data Configuration
+
+The full list of data configurations can be found in the "data" folder.
+
+###[STEP 4]  Train a YOLO-SPAM model
 
 A small usage example is provided in the `train_notebook.ipynb` notebook.
 
