@@ -3,7 +3,7 @@
 [[`Paper`](https://www.mdpi.com/2313-433X/9/12/266)]
 ### Architecture Overview
 <div align="center">
-  <img src="https://github.com/Snarci/YOLO-SPAM/blob/main/content/SPAMv8_3H.png" width="80%" height="80%"/>
+  <img src="https://github.com/Snarci/YOLO-SPAM/blob/main/content/SPAMv8_3H.png" width="50%" height="50%"/>
 </div><br/>
 
 ### Features
