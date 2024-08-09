@@ -1,6 +1,7 @@
-# YOLO-PAM: Parasite-Attention-Based Model for Efficient Malaria Detection
-
+# YOLO-SPAM: Small-Parasite-Attention-Based Model for Efficient Malaria Detection
+<!---
 [[`Paper`](https://www.mdpi.com/2313-433X/9/12/266)]
+--->
 ### Architecture Overview
 <div align="center">
   <img src="https://github.com/Snarci/YOLO-SPAM/blob/main/content/SPAMv8_3H.png" width="50%" height="50%"/>
@@ -70,7 +71,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## <a name="CitingYOLO-PAM"></a>Citing YOLO-PAM
 
 If you use YOLO-PAM in your research or wish to refer to the baseline results published in the original paper, please use the following BibTeX entry.
-
+<!---
 ```BibTeX
 @article{zedda_yolo-pam_2023,
 	title = {{YOLO}-{PAM}: {Parasite}-{Attention}-{Based} {Model} for {Efficient} {Malaria} {Detection}},
@@ -93,4 +94,5 @@ If you use YOLO-PAM in your research or wish to refer to the baseline results pu
 	pages = {266},
 }
 ```
+--->
 
