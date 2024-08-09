@@ -67,11 +67,11 @@ This project is licensed under the [MIT License](LICENSE).
 [1] Sultani *et al.* (2022), [Link to Paper M5](https://arxiv.org/pdf/2111.13656.pdf)  
 [2] Zedda *et al.* (ICIAP MALARIA), [Link to Paper ICIAP](https://link.springer.com/chapter/10.1007/978-3-031-06430-2_30)
 
-
+<!---
 ## <a name="CitingYOLO-PAM"></a>Citing YOLO-PAM
 
 If you use YOLO-PAM in your research or wish to refer to the baseline results published in the original paper, please use the following BibTeX entry.
-<!---
+
 ```BibTeX
 @article{zedda_yolo-pam_2023,
 	title = {{YOLO}-{PAM}: {Parasite}-{Attention}-{Based} {Model} for {Efficient} {Malaria} {Detection}},
