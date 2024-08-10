@@ -1,7 +1,7 @@
 # YOLO-SPAM: Small-Parasite-Attention-Based Model for Efficient Malaria Detection
-<!---
-[[`Paper`](https://www.mdpi.com/2313-433X/9/12/266)]
---->
+
+[[`YOLO PAM PAPER`](https://www.mdpi.com/2313-433X/9/12/266)]
+[[`YOLO SPAM PAPER`](https://www.sciencedirect.com/science/article/pii/S1746809424003471)]
 ### Architecture Overview
 <div align="center">
   <img src="https://github.com/Snarci/YOLO-SPAM/blob/main/content/SPAMv8_3H.png" width="50%" height="50%"/>
@@ -67,13 +67,13 @@ This project is licensed under the [MIT License](LICENSE).
 [1] Sultani *et al.* (2022), [Link to Paper M5](https://arxiv.org/pdf/2111.13656.pdf)  
 [2] Zedda *et al.* (ICIAP MALARIA), [Link to Paper ICIAP](https://link.springer.com/chapter/10.1007/978-3-031-06430-2_30)
 
-<!---
+
 ## <a name="CitingYOLO-PAM"></a>Citing YOLO-PAM
 
 If you use YOLO-PAM in your research or wish to refer to the baseline results published in the original paper, please use the following BibTeX entry.
 
 ```BibTeX
-@article{zedda_yolo-pam_2023,
+@article{YOLO PAM,
 	title = {{YOLO}-{PAM}: {Parasite}-{Attention}-{Based} {Model} for {Efficient} {Malaria} {Detection}},
 	volume = {9},
 	copyright = {http://creativecommons.org/licenses/by/3.0/},
@@ -93,6 +93,18 @@ If you use YOLO-PAM in your research or wish to refer to the baseline results pu
 	keywords = {computer vision, deep learning, early malaria diagnosis, image processing, malaria parasite detection},
 	pages = {266},
 }
+@article{YOLO SPAM,
+title = {A deep architecture based on attention mechanisms for effective end-to-end detection of early and mature malaria parasites},
+journal = {Biomedical Signal Processing and Control},
+volume = {94},
+pages = {106289},
+year = {2024},
+issn = {1746-8094},
+doi = {https://doi.org/10.1016/j.bspc.2024.106289},
+url = {https://www.sciencedirect.com/science/article/pii/S1746809424003471},
+author = {Luca Zedda and Andrea Loddo and Cecilia {Di Ruberto}},
+keywords = {Computer vision, Deep learning, Image processing, Malaria parasites detection, Early malaria diagnosis},
+}
 ```
---->
+
 
