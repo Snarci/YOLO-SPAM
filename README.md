@@ -39,7 +39,12 @@ This table compares the detection performance of our proposed framework against 
 
 Before using the code, make sure to follow these setup instructions:
 
+### [STEP 0]  Install Requirements
 
+Install the dependencies using
+```bash
+pip install -r requirements.txt
+```
 ### [STEP 1]  Select Model Configuration
 
 The full list of model configurations can be found in the "config" folder.
@@ -65,43 +70,101 @@ This project is licensed under the [MIT License](LICENSE).
 [2] Zedda *et al.* (ICIAP MALARIA), [Link to Paper ICIAP](https://link.springer.com/chapter/10.1007/978-3-031-06430-2_30)
 
 
-## <a name="CitingYOLO-PAM"></a>Citing YOLO-PAM
+## <a name="CitingYOLO-PAM and YOLO-SPAM"></a>Citing YOLO-PAM
 
-If you use YOLO-PAM in your research or wish to refer to the baseline results published in the original paper, please use the following BibTeX entry.
+If you use YOLO-PAM or YOLO-SPAM in your research or wish to refer to the baseline results published in the original paper, please use the following BibTeX entry.
 
 ```BibTeX
-@article{YOLO PAM,
-	title = {{YOLO}-{PAM}: {Parasite}-{Attention}-{Based} {Model} for {Efficient} {Malaria} {Detection}},
-	volume = {9},
-	copyright = {http://creativecommons.org/licenses/by/3.0/},
-	issn = {2313-433X},
-	shorttitle = {{YOLO}-{PAM}},
-	url = {https://www.mdpi.com/2313-433X/9/12/266},
-	doi = {10.3390/jimaging9120266},
-	language = {en},
-	number = {12},
-	urldate = {2023-11-30},
-	journal = {Journal of Imaging},
-	author = {Zedda, Luca and Loddo, Andrea and Di Ruberto, Cecilia},
-	month = dec,
-	year = {2023},
-	note = {Number: 12
-  Publisher: Multidisciplinary Digital Publishing Institute},
-	keywords = {computer vision, deep learning, early malaria diagnosis, image processing, malaria parasite detection},
-	pages = {266},
+@article{YOLO_PAM,
+  title       = {{YOLO}-{PAM}: {Parasite}-{Attention}-{Based} {Model} for {Efficient} {Malaria} {Detection}},
+  volume      = {9},
+  copyright   = {http://creativecommons.org/licenses/by/3.0/},
+  issn        = {2313-433X},
+  shorttitle  = {{YOLO}-{PAM}},
+  url         = {https://www.mdpi.com/2313-433X/9/12/266},
+  doi         = {10.3390/jimaging9120266},
+  language    = {en},
+  number      = {12},
+  urldate     = {2023-11-30},
+  journal     = {Journal of Imaging},
+  author      = {Zedda, Luca and Loddo, Andrea and Di Ruberto, Cecilia},
+  month       = dec,
+  year        = {2023},
+  note        = {Number: 12 Publisher: Multidisciplinary Digital Publishing Institute},
+  keywords    = {computer vision, deep learning, early malaria diagnosis, image processing, malaria parasite detection},
+  pages       = {266},
 }
-@article{YOLO SPAM,
-title = {A deep architecture based on attention mechanisms for effective end-to-end detection of early and mature malaria parasites},
-journal = {Biomedical Signal Processing and Control},
-volume = {94},
-pages = {106289},
-year = {2024},
-issn = {1746-8094},
-doi = {https://doi.org/10.1016/j.bspc.2024.106289},
-url = {https://www.sciencedirect.com/science/article/pii/S1746809424003471},
-author = {Luca Zedda and Andrea Loddo and Cecilia {Di Ruberto}},
-keywords = {Computer vision, Deep learning, Image processing, Malaria parasites detection, Early malaria diagnosis},
+
+@article{YOLO_SPAM,
+  title     = {A deep architecture based on attention mechanisms for effective end-to-end detection of early and mature malaria parasites},
+  journal   = {Biomedical Signal Processing and Control},
+  volume    = {94},
+  pages     = {106289},
+  year      = {2024},
+  issn      = {1746-8094},
+  doi       = {https://doi.org/10.1016/j.bspc.2024.106289},
+  url       = {https://www.sciencedirect.com/science/article/pii/S1746809424003471},
+  author    = {Luca Zedda and Andrea Loddo and Cecilia {Di Ruberto}},
+  keywords  = {Computer vision, Deep learning, Image processing, Malaria parasites detection, Early malaria diagnosis},
 }
+
 ```
+## <a name="Citing our other malaria works"></a>Citing our other malaria works
 
+If you want to cite our other malaria works in your research or wish to refer to the baseline results published in our papers, please use the following BibTeX entry.
 
+```BibTeX
+@inproceedings{zedda_sammi_2024,
+	address = {Rome, Italy},
+	title = {{SAMMI}: {Segment} {Anything} {Model} for {Malaria} {Identification}:},
+	isbn = {978-989-758-679-8},
+	shorttitle = {{SAMMI}},
+	url = {https://www.scitepress.org/DigitalLibrary/Link.aspx?doi=10.5220/0012325500003660},
+	doi = {10.5220/0012325500003660},
+	language = {en},
+	urldate = {2024-03-15},
+	booktitle = {Proceedings of the 19th {International} {Joint} {Conference} on {Computer} {Vision}, {Imaging} and {Computer} {Graphics} {Theory} and {Applications}},
+	publisher = {SCITEPRESS - Science and Technology Publications},
+	author = {Zedda, Luca and Loddo, Andrea and Di Ruberto, Cecilia},
+	year = {2024},
+	pages = {367--374},
+}
+
+@incollection{zedda_mtanet_2024,
+	address = {Cham},
+	title = {{MTANet}: {Multi}-{Type} {Attention} {Ensemble} for {Malaria} {Parasite} {Detection}},
+	volume = {14366},
+	isbn = {978-3-031-51025-0 978-3-031-51026-7},
+	shorttitle = {{MTANet}},
+	url = {https://link.springer.com/10.1007/978-3-031-51026-7_6},
+	language = {en},
+	urldate = {2024-03-15},
+	booktitle = {Image {Analysis} and {Processing} - {ICIAP} 2023 {Workshops}},
+	publisher = {Springer Nature Switzerland},
+	author = {Zedda, Luca and Loddo, Andrea and Di Ruberto, Cecilia},
+	editor = {Foresti, Gian Luca and Fusiello, Andrea and Hancock, Edwin},
+	year = {2024},
+	doi = {10.1007/978-3-031-51026-7_6},
+	note = {Series Title: Lecture Notes in Computer Science},
+	pages = {59--70},
+}
+
+@incollection{zedda_deep_2022,
+	address = {Cham},
+	title = {A {Deep} {Learning} {Based} {Framework} for {Malaria} {Diagnosis} on {High} {Variation} {Data} {Set}},
+	volume = {13232},
+	isbn = {978-3-031-06429-6 978-3-031-06430-2},
+	url = {https://link.springer.com/10.1007/978-3-031-06430-2_30},
+	language = {en},
+	urldate = {2024-03-15},
+	booktitle = {Image {Analysis} and {Processing} – {ICIAP} 2022},
+	publisher = {Springer International Publishing},
+	author = {Zedda, Luca and Loddo, Andrea and Di Ruberto, Cecilia},
+	editor = {Sclaroff, Stan and Distante, Cosimo and Leo, Marco and Farinella, Giovanni M. and Tombari, Federico},
+	year = {2022},
+	doi = {10.1007/978-3-031-06430-2_30},
+	note = {Series Title: Lecture Notes in Computer Science},
+	pages = {358--370},
+}
+
+```
