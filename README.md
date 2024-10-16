@@ -6,6 +6,31 @@
 [[`SAMMI PAPER`](https://iris.unica.it/handle/11584/397665)]
 [[`MALARIA FRAMEWORK PAPER`](https://link.springer.com/chapter/10.1007/978-3-031-06430-2_30)]
 
+
+## Setup
+
+Before using the code, make sure to follow these setup instructions:
+
+### [STEP 0]  Install Requirements
+
+Install the dependencies using
+```bash
+pip install -r requirements.txt
+```
+If you are going to use GPU accelerated training feel free to remove the torch, torchvision and torchaudio rows from the requirements file and install your correct version according to [Get Started with PyTorch Locally](https://pytorch.org/get-started/locally/)
+
+### [STEP 1]  Select Model Configuration
+
+The full list of model configurations can be found in the "config" folder.
+
+### [STEP 2]  Create Data Configuration
+
+The full list of data configurations can be found in the "data" folder.
+
+### [STEP 3]  Train a YOLO-SPAM model
+
+A small usage example is provided in the `train_notebook.ipynb` notebook.
+
 ### Architecture Overview
 <div align="center">
   <img src="https://github.com/Snarci/YOLO-SPAM/blob/main/content/SPAMv8_3H.png" width="50%" height="50%"/>
@@ -39,29 +64,6 @@ This table compares the detection performance of our proposed framework against 
 | IML     | P. Vivax | Proposed Framework | YOLOv5-SPAM-3H | **67.4** | - |
 
 
-## Setup
-
-Before using the code, make sure to follow these setup instructions:
-
-### [STEP 0]  Install Requirements
-
-Install the dependencies using
-```bash
-pip install -r requirements.txt
-```
-If you are going to use GPU accelerated training feel free to remove the torch, torchvision and torchaudio rows from the requirements file and install your correct version according to [Get Started with PyTorch Locally](https://pytorch.org/get-started/locally/)
-
-### [STEP 1]  Select Model Configuration
-
-The full list of model configurations can be found in the "config" folder.
-
-### [STEP 2]  Create Data Configuration
-
-The full list of data configurations can be found in the "data" folder.
-
-### [STEP 3]  Train a YOLO-SPAM model
-
-A small usage example is provided in the `train_notebook.ipynb` notebook.
 
 ## Contributing
 
