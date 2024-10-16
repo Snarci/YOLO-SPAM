@@ -1,0 +1,10 @@
+requests
+tqdm
+torch
+torchvision
+torchaudio
+opencv-python
+matplotlib
+pyyaml
+thop
+timm
