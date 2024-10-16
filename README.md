@@ -2,6 +2,10 @@
 
 [[`YOLO PAM PAPER`](https://www.mdpi.com/2313-433X/9/12/266)]
 [[`YOLO SPAM PAPER`](https://www.sciencedirect.com/science/article/pii/S1746809424003471)]
+[[`MTANET PAPER`](https://link.springer.com/chapter/10.1007/978-3-031-51026-7_6)]
+[[`SAMMI PAPER`](https://iris.unica.it/handle/11584/397665)]
+[[`MALARIA FRAMEWORK PAPER`](https://link.springer.com/chapter/10.1007/978-3-031-06430-2_30)]
+
 ### Architecture Overview
 <div align="center">
   <img src="https://github.com/Snarci/YOLO-SPAM/blob/main/content/SPAMv8_3H.png" width="50%" height="50%"/>
@@ -45,6 +49,8 @@ Install the dependencies using
 ```bash
 pip install -r requirements.txt
 ```
+If you are going to use GPU accelerated training feel free to remove the torch, torchvision and torchaudio rows from the requirements file and install your correct version according to [Get Started with PyTorch Locally](https://pytorch.org/get-started/locally/)
+
 ### [STEP 1]  Select Model Configuration
 
 The full list of model configurations can be found in the "config" folder.
